@@ -1,0 +1,96 @@
+.galleria { 
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 700px; 
+    height: 400px; 
+    background: #d799af 
+}
+.myModal {
+    display: none; 
+}
+.modal_vis {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100vh; 
+    overflow: hidden; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+.modal-content {
+    display: none;
+}
+.modal-content-vis {  
+    display: flex;
+    width: 90%;
+    height: 95%;
+    object-fit: contain;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+} 
+.viewer
+{
+    height: 100%;
+    position: relative;
+    background-color: gray;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0);} 
+    to {-webkit-transform:scale(1);}
+}
+@keyframes zoom {
+    from {transform:scale(0);} 
+    to {transform:scale(1);}
+}
+.modal-tab { 
+    display: flex;
+    width: 80%;
+    max-width: 700px;
+    height: 5%;
+    margin-top: 10px;
+    border: 0.2px solid white;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.tab-element {
+    display: flex;
+    width: 10%;
+    height: 100%;
+    margin-left: 10px;
+    border: 0.2px solid white;
+}
+.close {
+    position: absolute;
+    top: 10%;
+    right: 3%;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 99999;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+}
+.check {
+    display: block;
+}
