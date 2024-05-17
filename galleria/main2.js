@@ -2,10 +2,28 @@ import {CropPicture} from "./cropePicture.js";
 import {SelectUrgent} from "./selectUrgent.js";
 
 document.getElementById('crop').onclick = () => {
-    document.getElementById("test_box").style.display = "block";
-    document.body.style.cursor = "nw-resize";
-    let obj = new CropPicture("sel_box", "sel_box");
-    document.onmousedown = obj.mousedown.bind(obj);
+    let el = document.getElementsByTagName("img")[0];
+    el.addEventListener('transitionend', () => {
+            document.getElementById("test_box").style.display = "block";
+            document.body.style.cursor = "nw-resize";
+            let obj = new CropPicture("sel_box", "sel_box");
+            document.onmousedown = obj.mousedown.bind(obj);
+            el.style.transition = "";
+            el.removeEventListener("transitionend", () => {});
+    });
+    let rotateImg = el.style.transform.match(/rotate\((\d+)(.+)\)/);
+    if (parseInt(rotateImg[1])/90 > 0 ) {
+        console.log("real rotate ", parseInt(rotateImg[1]));
+        el.style.transition = "transform 0.1s";
+        el.style.transform = "rotate(0deg)";
+        
+    } else {
+        document.getElementById("test_box").style.display = "block";
+        document.body.style.cursor = "nw-resize";
+        let obj = new CropPicture("sel_box", "sel_box");
+        document.onmousedown = obj.mousedown.bind(obj);
+    }
+    
 }
 
 function createID(i) {
