@@ -36,6 +36,8 @@ document.getElementById('arrow').onclick = () => {
 document.getElementById('reset').onclick = () => {
     if (!(isCanvasBlank(document.getElementById("myCanvas")))) {
         let canvas = document.getElementById("myCanvas");
+        const context = canvas.getContext('2d', { willReadFrequently: true });
+        context.clearRect(0, 0, canvas.width, canvas.height);
         canvas.classList.add("no-vis");
         // sel_box.remove();
         let sel_box = document.getElementById("sel_box");
