@@ -6927,10 +6927,10 @@ function createData() {
         Galleria.run('.galleria');
         Galleria.ready(function(options) {
 
-            let modal = document.querySelectorAll(".myModal");
-            let modalImg = document.getElementById("viewer1");
-            let span = document.getElementById("close-modal");
-            let findImage = document.querySelectorAll(".galleria-images");
+//            let modal = document.querySelectorAll(".myModal");
+//            let modalImg = document.getElementById("viewer1");
+//            let span = document.getElementById("close-modal");
+//            let findImage = document.querySelectorAll(".galleria-images");
         
             this.bind('image', function(e) {
                 // Galleria.log(e.scope._data);
@@ -6940,10 +6940,10 @@ function createData() {
                 // tabElements[0].style.cursor = "pointer";
                 e.imageTarget.addEventListener('click', () => {
                     let picSrc = this._data[e.index].big;
-                    if (modalImg.hasChildNodes()) {
-                        // console.log("", modalImg.firstElementChild.src);
-                        modalImg.firstElementChild.src = picSrc;
-                    }
+//                    if (modalImg.hasChildNodes()) {
+//                        // console.log("", modalImg.firstElementChild.src);
+//                        modalImg.firstElementChild.src = picSrc;
+//                    }
                     
                     let mainFunc = (pic) => {
                         let myPic = pic;
@@ -6956,11 +6956,11 @@ function createData() {
                         jQuery(myFunc);
                     }
                     
-                    modal[0].classList.toggle('modal_vis');
-                    mainFunc(picSrc);
-                    span.onclick = function() { 
-                        modal[0].classList.toggle('modal_vis');
-                    }
+//                    modal[0].classList.toggle('modal_vis');
+//                    mainFunc(picSrc);
+//                    span.onclick = function() { 
+//                        modal[0].classList.toggle('modal_vis');
+//                    }
                     let url = new URL(window.location.href);
                     url.pathname = "PictureGalleria/showBigPic.php";
                     url.searchParams.set('p', picSrc);
